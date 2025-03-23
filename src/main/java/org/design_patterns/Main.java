@@ -1,5 +1,8 @@
 package org.design_patterns;
 
+import org.design_patterns.adapter.TypeC;
+import org.design_patterns.adapter.TypeCAdapter;
+import org.design_patterns.adapter.USB;
 import org.design_patterns.builder.Computer;
 import org.design_patterns.builder.ComputerBuilder;
 import org.design_patterns.factory.Vehicle;
@@ -26,19 +29,23 @@ public class Main {
 //        car.drive();
 
 
-        //Builder design pattern Implementation
-        Computer computer = new ComputerBuilder()
-                            .setCPU("intel i7")
-                            .setRAM(8)
-                            .build();
+//        //Builder design pattern Implementation
+//        Computer computer = new ComputerBuilder()
+//                            .setCPU("intel i7")
+//                            .setRAM(8)
+//                            .build();
+//
+//        computer.showConfig();
+//
+//        Computer computer2 = new ComputerBuilder()
+//                .setCPU("intel i5")
+//                .setRAM(4)
+//                .build();
+//
+//        computer2.showConfig();
 
-        computer.showConfig();
-
-        Computer computer2 = new ComputerBuilder()
-                .setCPU("intel i5")
-                .setRAM(4)
-                .build();
-
-        computer2.showConfig();
+        //Adapter Design Pattern
+        USB adapter = new TypeCAdapter(new TypeC());
+        adapter.connectWithUsbCable();
     }
 }
