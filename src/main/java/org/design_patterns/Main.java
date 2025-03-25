@@ -5,6 +5,7 @@ import org.design_patterns.adapter.TypeCAdapter;
 import org.design_patterns.adapter.USB;
 import org.design_patterns.builder.Computer;
 import org.design_patterns.builder.ComputerBuilder;
+import org.design_patterns.decorator.*;
 import org.design_patterns.factory.Vehicle;
 import org.design_patterns.factory.VehicleFactory;
 
@@ -44,8 +45,17 @@ public class Main {
 //
 //        computer2.showConfig();
 
-        //Adapter Design Pattern
-        USB adapter = new TypeCAdapter(new TypeC());
-        adapter.connectWithUsbCable();
+//        //Adapter Design Pattern
+//        USB adapter = new TypeCAdapter(new TypeC());
+//        adapter.connectWithUsbCable();
+
+        Coffee coffee = new SimpleCoffee();
+        System.out.println(coffee.makeCoffee());
+
+        coffee = new MilkDecorator(coffee);
+        System.out.println(coffee.makeCoffee());
+
+        coffee = new SugarDecorator(coffee);
+        System.out.println(coffee.makeCoffee());
     }
 }
