@@ -10,6 +10,8 @@ import org.design_patterns.composite.File;
 import org.design_patterns.decorator.*;
 import org.design_patterns.factory.Vehicle;
 import org.design_patterns.factory.VehicleFactory;
+import org.design_patterns.proxy.ProxyObject;
+import org.design_patterns.proxy.RealObject;
 
 public class Main {
     public static void main(String[] args) {
@@ -61,13 +63,17 @@ public class Main {
 //        coffee = new SugarDecorator(coffee);
 //        System.out.println(coffee.makeCoffee());
 
-        //composite pattern implementation
-        File file1 = new File("Document.txt");
-        File file2 = new File("Photo.png");
+//        //composite pattern implementation
+//        File file1 = new File("Document.txt");
+//        File file2 = new File("Photo.png");
+//
+//        Directory folder = new Directory("My Folder");
+//        folder.add(file1);
+//        folder.add(file2);
+//        folder.showDetails();
 
-        Directory folder = new Directory("My Folder");
-        folder.add(file1);
-        folder.add(file2);
-        folder.showDetails();
+        //proxy design pattern
+        RealObject proxy = new ProxyObject();
+        proxy.request();
     }
 }
