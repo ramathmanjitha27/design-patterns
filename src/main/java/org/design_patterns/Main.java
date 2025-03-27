@@ -10,6 +10,9 @@ import org.design_patterns.composite.File;
 import org.design_patterns.decorator.*;
 import org.design_patterns.factory.Vehicle;
 import org.design_patterns.factory.VehicleFactory;
+import org.design_patterns.observer.Channel;
+import org.design_patterns.observer.Observer;
+import org.design_patterns.observer.User;
 import org.design_patterns.proxy.ProxyObject;
 import org.design_patterns.proxy.RealObject;
 
@@ -72,8 +75,17 @@ public class Main {
 //        folder.add(file2);
 //        folder.showDetails();
 
-        //proxy design pattern
-        RealObject proxy = new ProxyObject();
-        proxy.request();
+//        //proxy design pattern
+//        RealObject proxy = new ProxyObject();
+//        proxy.request();
+
+        //Observer Design Pattern
+        Channel channel = new Channel();
+        Observer user1 = new User("User1");
+        Observer user2 = new User("User2");
+
+        channel.addObserver(user1);
+        channel.addObserver(user2);
+        channel.notifyObservers("Payment received");
     }
 }
