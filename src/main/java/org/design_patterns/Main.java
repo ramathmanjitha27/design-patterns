@@ -15,6 +15,8 @@ import org.design_patterns.observer.Observer;
 import org.design_patterns.observer.User;
 import org.design_patterns.proxy.ProxyObject;
 import org.design_patterns.proxy.RealObject;
+import org.design_patterns.strategy.PayPayPal;
+import org.design_patterns.strategy.ShoppingCart;
 
 public class Main {
     public static void main(String[] args) {
@@ -79,13 +81,19 @@ public class Main {
 //        RealObject proxy = new ProxyObject();
 //        proxy.request();
 
-        //Observer Design Pattern
-        Channel channel = new Channel();
-        Observer user1 = new User("User1");
-        Observer user2 = new User("User2");
+//        //Observer Design Pattern
+//        Channel channel = new Channel();
+//        Observer user1 = new User("User1");
+//        Observer user2 = new User("User2");
+//
+//        channel.addObserver(user1);
+//        channel.addObserver(user2);
+//        channel.notifyObservers("Payment received");
 
-        channel.addObserver(user1);
-        channel.addObserver(user2);
-        channel.notifyObservers("Payment received");
+        //Strategy Design Pattern
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setPaymentStrategy(new PayPayPal());
+        shoppingCart.checkout(300);
+
     }
 }
