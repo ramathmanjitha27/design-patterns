@@ -5,6 +5,8 @@ import org.design_patterns.adapter.TypeCAdapter;
 import org.design_patterns.adapter.USB;
 import org.design_patterns.builder.Computer;
 import org.design_patterns.builder.ComputerBuilder;
+import org.design_patterns.composite.Directory;
+import org.design_patterns.composite.File;
 import org.design_patterns.decorator.*;
 import org.design_patterns.factory.Vehicle;
 import org.design_patterns.factory.VehicleFactory;
@@ -49,13 +51,23 @@ public class Main {
 //        USB adapter = new TypeCAdapter(new TypeC());
 //        adapter.connectWithUsbCable();
 
-        Coffee coffee = new SimpleCoffee();
-        System.out.println(coffee.makeCoffee());
+//        //Decorator pattern implementation
+//        Coffee coffee = new SimpleCoffee();
+//        System.out.println(coffee.makeCoffee());
+//
+//        coffee = new MilkDecorator(coffee);
+//        System.out.println(coffee.makeCoffee());
+//
+//        coffee = new SugarDecorator(coffee);
+//        System.out.println(coffee.makeCoffee());
 
-        coffee = new MilkDecorator(coffee);
-        System.out.println(coffee.makeCoffee());
+        //composite pattern implementation
+        File file1 = new File("Document.txt");
+        File file2 = new File("Photo.png");
 
-        coffee = new SugarDecorator(coffee);
-        System.out.println(coffee.makeCoffee());
+        Directory folder = new Directory("My Folder");
+        folder.add(file1);
+        folder.add(file2);
+        folder.showDetails();
     }
 }
