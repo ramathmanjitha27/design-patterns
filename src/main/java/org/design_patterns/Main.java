@@ -8,6 +8,10 @@ import org.design_patterns.builder.ComputerBuilder;
 import org.design_patterns.composite.Directory;
 import org.design_patterns.composite.File;
 import org.design_patterns.decorator.*;
+import org.design_patterns.facade.Amplifier;
+import org.design_patterns.facade.DVD;
+import org.design_patterns.facade.HomeTheaterFacade;
+import org.design_patterns.facade.TV;
 import org.design_patterns.factory.Vehicle;
 import org.design_patterns.factory.VehicleFactory;
 import org.design_patterns.observer.Channel;
@@ -90,10 +94,19 @@ public class Main {
 //        channel.addObserver(user2);
 //        channel.notifyObservers("Payment received");
 
-        //Strategy Design Pattern
-        ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.setPaymentStrategy(new PayPayPal());
-        shoppingCart.checkout(300);
+//        //Strategy Design Pattern
+//        ShoppingCart shoppingCart = new ShoppingCart();
+//        shoppingCart.setPaymentStrategy(new PayPayPal());
+//        shoppingCart.checkout(300);
+
+        //facade design pattern
+        TV tv = new TV();
+        DVD dvd = new DVD();
+        Amplifier amplifier = new Amplifier();
+
+        HomeTheaterFacade homeTheaterFacade = new HomeTheaterFacade(tv, dvd, amplifier);
+        homeTheaterFacade.watchMovie("Spiderman");
+        homeTheaterFacade.stopMovie();
 
     }
 }
